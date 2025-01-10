@@ -14,15 +14,16 @@ codeunit 60001 "MMC Sales Price Management"
         Item.Get(TempPurchLine."No.");
         OldLastDirectCost := SingleInstanceMgt.GetOldLastDirectCost();
 
-        if OldLastDirectCost < TempPurchLine."Direct Unit Cost" then begin
-            UnitPrice := TempPurchLine."Direct Unit Cost" / (100 - Item."Profit %") * 100;
+        if OldLastDirectCost < TempPurchLine."Unit Cost (LCY)" then begin
+            UnitPrice := Round(TempPurchLine."Unit Cost (LCY)" / (100 - Item."Profit %") * 100);
             if UnitPrice <> 0 then begin
 
                 SalesPrice.SetFilter("Starting Date", '<=%1', Today());
+                SalesPrice.SetRange("Item No.", TempPurchLine."No.");
                 SalesPrice.SetRange("Unit of Measure Code", TempPurchLine."Unit of Measure Code");
                 SalesPrice.SetFilter("Ending Date", '>= %1|%2', Today(), 0D);
                 if SalesPrice.FindLast() then begin
-                    SalesPrice."Ending Date" := Today();
+                    SalesPrice.Validate("Ending Date", Today());
                     SalesPrice.Modify(true);
                 end;
 
