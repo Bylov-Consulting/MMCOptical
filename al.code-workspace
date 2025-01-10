@@ -15,7 +15,7 @@
 				"type": "al",
 				"request": "launch",
 				"environmentType": "Sandbox",
-				"environmentName": "Sandbox_20240227",
+				"environmentName": "Sandbox_20241216",
 				"startupObjectId": 22,
 				"breakOnError": "All",
 				"breakOnRecordWrite": "None",
@@ -25,21 +25,6 @@
 				"longRunningSqlStatementsThreshold": 500,
 				"numberOfSqlStatements": 10,
 				"tenant": "b01d66d2-ed9f-4714-9d6a-79936012b327"
-			},
-			{
-				"name": "Publish: MMC_Dev",
-				"request": "launch",
-				"type": "al",
-				"environmentType": "Sandbox",
-				"environmentName": "celeste_dev",
-				"tenant": "267107dd-6e90-45f0-aba2-2e9f1e0aa837",
-				"startupObjectId": 22,
-				"startupObjectType": "Page",
-				"breakOnError": "All",
-				"launchBrowser": true,
-				"enableLongRunningSqlStatements": true,
-				"enableSqlInformationDebugger": true,
-				"schemaUpdateMode": "ForceSync"
 			}			
 		]
 	}
