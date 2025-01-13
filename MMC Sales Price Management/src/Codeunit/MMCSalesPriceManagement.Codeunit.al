@@ -15,7 +15,7 @@ codeunit 60001 "MMC Sales Price Management"
         OldLastDirectCost := SingleInstanceMgt.GetOldLastDirectCost();
 
         if OldLastDirectCost < TempPurchLine."Unit Cost (LCY)" then begin
-            UnitPrice := Round(TempPurchLine."Unit Cost (LCY)" / (100 - Item."Profit %") * 100);
+            UnitPrice := Round(TempPurchLine."Unit Cost (LCY)" / (100 - Item."Profit %") * 100, 1);
             if UnitPrice <> 0 then begin
 
                 SalesPrice.SetFilter("Starting Date", '<=%1', Today());
